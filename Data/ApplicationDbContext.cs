@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Devopsweb.Models;
 
 namespace Devopsweb.Data
 {
@@ -9,5 +10,6 @@ namespace Devopsweb.Data
             : base(options)
         {
         }
+        public DbSet<Devopsweb.Models.Portfolio> Portfolio { get; set; } = default!;
     }
 }
