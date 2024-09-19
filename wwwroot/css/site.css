@@ -76,3 +76,12 @@ p {
     font-size:1.5em;
 }
 
+.profile-link{
+    display: inline-block;
+}
+
+.profile-img{
+ height: 400px;
+    
+}
+
