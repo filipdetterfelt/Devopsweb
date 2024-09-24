@@ -2,116 +2,82 @@
     ViewData["Title"] = "TechnicalSkills";
 }
 
-<h1>Technical Skills</h1>
-<p>Here is my skills</p>
-<br/>
+@model List<Devopsweb.Models.SkillsModel>
 
-<!--Databas-->
-<div class="card-group">
-    <h3 class="group-title">Database</h3>
-    <div class="card-deck">
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">MySQL</h5>
+
+
+<div class="flex-container">
+    <div class="technical-skills">
+        <h1 class="group-title">Technical Skills</h1>
+        <div class="card-group">
+            <div class="card-container">
+                <div class="card-deck">
+                    @foreach (var skill in Model)
+                    {
+                            <div class="card">                  
+                                <div class="card-body">
+                                    <h5 class="card-title">@skill.Title</h5>
+                                </div>
+                            </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects">
+        <h1 class="group-title">My Projects</h1>
+        <div class="card-group">
+            <div class="card-container">
+                <div class="card-deck">
+                    <div class="card"> 
+                        <a href="https://github.com/filipdetterfelt/Backend-Pensionat" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Pensionat Koriander</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card"> 
+                        <a href="https://github.com/filipdetterfelt/Webbshopenv2" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Webbshopen</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card"> 
+                        <a href="https://github.com/filipdetterfelt/The-Exchanger" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">The-Exchanger</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card"> 
+                        <a href="https://github.com/filipdetterfelt/Quizkampen" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Quizkampen</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card"> 
+                        <a href="https://github.com/filipdetterfelt/spelFemtonVG" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">15-Game</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card"> 
+                        <a href="https://github.com/filipdetterfelt/PasswordCracker" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Password-Cracker</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!--Frontend-->
-<div class="card-group">
-    <h3 class="group-title">Frontend</h3>
-    <div class="card-deck">
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">HTML</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">CSS</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">JavaScript</h5>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Backend-->
-<div class="card-group">
-    <h3 class="group-title">Backend</h3>
-
-    <div class="card-deck">
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">Java</h5>
-
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">Kotlin</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">C#</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">OOP</h5>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Others-->
-<div class="card-group">
-    <h3 class="group-title">Others</h3>
-
-    <div class="card-deck">
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">JSON</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">JDBC</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">GITHUB</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">Bootstrap</h5>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card body">
-                <h5 class="card-title">Spring Framework</h5>
-            </div>
-        </div>
-
-
-    </div>
-</div>
 
 
 
