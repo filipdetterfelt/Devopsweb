@@ -1,0 +1,25 @@
+name: C# CI With dotnet
+
+on:
+    push:
+        branches: ["master"]
+
+permissions: write-all
+
+jobs:
+   build:
+        
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: mr-smithers-excellent/docker-build-push@v6
+      name: Build & push Docker image
+      with:
+        image: filipdetterfelt/portfolio
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
