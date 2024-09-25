@@ -5,36 +5,63 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-
 var builder = WebApplication.CreateBuilder(args);
-
-
 Env.Load();
-string testenv = Environment.GetEnvironmentVariable("DB_HOST");
-Console.WriteLine("Testenv = " + testenv);
-string connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"] ?? string.Empty;
-Console.WriteLine("Connectionstring = " + connectionString);
 
 
-// Replace placeholders with actual environment variables
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).AddEnvironmentVariables();
+
+//string workingUrl = "Host = localhost; Port = 5432; Database = postgres; Username = postgres; Password = password;" ;
+
+
+
+
+Console.WriteLine("DB_HOST: " + Environment.GetEnvironmentVariable("DB_HOST"));
+Console.WriteLine("DB_DATABASE: " + Environment.GetEnvironmentVariable("DB_DATABASE"));
+Console.WriteLine("DB_USERNAME: " + Environment.GetEnvironmentVariable("DB_USERNAME"));
+Console.WriteLine("DB_PASSWORD: " + Environment.GetEnvironmentVariable("DB_PASSWORD"));
+
+
+
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
+if (string.IsNullOrWhiteSpace(connectionString)) 
+{
+    Console.WriteLine("Connection string is empty");
+}
+
 connectionString = connectionString
     .Replace("${DB_HOST}", Environment.GetEnvironmentVariable("DB_HOST") ?? string.Empty)
     .Replace("${DB_DATABASE}", Environment.GetEnvironmentVariable("DB_DATABASE") ?? string.Empty)
     .Replace("${DB_USERNAME}", Environment.GetEnvironmentVariable("DB_USERNAME") ?? string.Empty)
     .Replace("${DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD") ?? string.Empty);
-Console.WriteLine(connectionString);
-builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
+if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DB_HOST")))
+{
+    Console.WriteLine("DB_HOST is null or empty.");
+}
+
+string hardcoded = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=password;";
+Console.WriteLine("Connection String after replacement: " + connectionString);
+Console.WriteLine("Hardcoded String " + hardcoded);
+
+//string testenv = Environment.GetEnvironmentVariable("DB_HOST");
+//Console.WriteLine("Testenv = " + testenv);
+//Console.WriteLine("Connectionstring = " + connectionString);
+
+
+// Replace placeholders with actual environment variables
+//Console.WriteLine(connectionString);
+//builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
 //Console.WriteLine(builder.Configuration["ConnectionStrings:DefaultConnection"]);
 
-Console.WriteLine(Environment.GetEnvironmentVariable("DB_HOST"));
-Console.WriteLine(Environment.GetEnvironmentVariable("DB_DATABASE"));
-Console.WriteLine(Environment.GetEnvironmentVariable("DB_USERNAME"));
-Console.WriteLine(Environment.GetEnvironmentVariable("DB_PASSWORD"));
+//Console.WriteLine(Environment.GetEnvironmentVariable("DB_HOST").Length);
+//Console.WriteLine(Environment.GetEnvironmentVariable("DB_DATABASE").Length);
+//Console.WriteLine(Environment.GetEnvironmentVariable("DB_USERNAME").Length);
+//Console.WriteLine(Environment.GetEnvironmentVariable("DB_PASSWORD").Length);
 
 
 
-string saveStringFromBuilder = builder.Configuration["ConnectionStrings:DefaultConnection"];
-Console.WriteLine(connectionString);
+//string saveStringFromBuilder = builder.Configuration["ConnectionStrings:DefaultConnection"];
+//Console.WriteLine(connectionString);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
@@ -45,11 +72,6 @@ builder.Services.AddDbContext<SkillsDbContext>(options =>
 
 // Add services to the container.
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(saveStringFromBuilder));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
@@ -57,8 +79,7 @@ builder.Services.AddControllersWithViews();
 
 
 var app = builder.Build();
-Console.WriteLine("Connectionstring after replace = " + builder.Configuration["ConnectionStrings:DefaultConnection"]);
-builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).AddEnvironmentVariables();
+//Console.WriteLine("Connectionstring after replace = " + builder.Configuration["ConnectionStrings:DefaultConnection"]);
 
 
 

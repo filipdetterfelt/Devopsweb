@@ -15,6 +15,7 @@ namespace Devopsweb.Controllers
 
         public IActionResult TechnicalSkills()
         {
+
             List<SkillsModel> skills = _skillsContext.Skills.ToList();
 
            
