@@ -29,10 +29,6 @@ namespace Devopsweb.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
@@ -45,79 +41,66 @@ namespace Devopsweb.Migrations
                         new
                         {
                             Id = 1,
-                            ImageUrl = "",
                             Title = "MySQL"
                         },
                         new
                         {
                             Id = 2,
-                            ImageUrl = "",
                             Title = "HTML"
                         },
                         new
                         {
                             Id = 3,
-                            ImageUrl = "",
                             Title = "CSS"
                         },
                         new
                         {
                             Id = 4,
-                            ImageUrl = "",
                             Title = "JavaScript"
                         },
                         new
                         {
                             Id = 5,
-                            ImageUrl = "",
                             Title = "Java"
                         },
                         new
                         {
                             Id = 6,
-                            ImageUrl = "",
                             Title = "Kotlin"
                         },
                         new
                         {
                             Id = 7,
-                            ImageUrl = "",
                             Title = "C#"
                         },
                         new
                         {
                             Id = 8,
-                            ImageUrl = "",
                             Title = "OOP"
                         },
                         new
                         {
                             Id = 9,
-                            ImageUrl = "",
                             Title = "JSON"
                         },
                         new
                         {
                             Id = 10,
-                            ImageUrl = "",
                             Title = "JDBC"
                         },
                         new
                         {
                             Id = 11,
-                            ImageUrl = "",
                             Title = "Github"
                         },
                         new
                         {
                             Id = 12,
-                            ImageUrl = "",
                             Title = "Bootstrap"
                         },
                         new
                         {
                             Id = 13,
-                            ImageUrl = "",
                             Title = "Spring Framework"
                         });
                 });

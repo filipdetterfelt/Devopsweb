@@ -5,10 +5,18 @@
 namespace Devopsweb.Migrations
 {
     /// <inheritdoc />
-    public partial class AddImageUrlToSkills : Migration
+    public partial class newestMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "ImageUrl",
+                table: "Skills");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "ImageUrl",
@@ -107,14 +115,6 @@ namespace Devopsweb.Migrations
                 keyValue: 13,
                 column: "ImageUrl",
                 value: "");
-        }
-
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropColumn(
-                name: "ImageUrl",
-                table: "Skills");
         }
     }
 }

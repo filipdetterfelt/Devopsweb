@@ -8,6 +8,21 @@ html {
     }
 }
 
+@media(max-width: 1600px){
+    .flex-container {
+        flex-wrap: wrap;
+        align-items:center;
+        justify-content:center;
+    }
+}
+
+@media(max-width: 768px) {
+    .flex-container, .technical-skills, .projects, main, .container, .card-container {
+        width: 100vw;
+        display: block;
+    }
+}
+
 .index-background {
     background-image: url('Images/imageindex.jpg');
     background-size: cover;
@@ -104,14 +119,17 @@ p {
     padding: 15px;
     background-color: #2A2A38;
     width: 100%;
-    height: 500px;
+    min-height: 500px;
+    overflow-y: scroll;
 }
 
 .flex-container{
+    align-items:center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 150px 0;
     gap: 40px;
+    height:auto;
 }
 
 .technical-skills, .projects {
@@ -120,9 +138,11 @@ p {
     display: flex;
     flex-direction: column;
     transition: transform 0.6s, margin 0.6s;
-    height: 500px;
+    min-height: 500px;
+    
 }
 
-    .technical-skills:hover, .projects:hover {
+.technical-skills:hover, .projects:hover {
         transform: scale(1.25);    
-    }
+}
+

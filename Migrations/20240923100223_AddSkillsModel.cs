@@ -27,20 +27,20 @@ namespace Devopsweb.Migrations
 
             migrationBuilder.InsertData(
                 table: "Skills",
-                columns: new[] { "Id", "Title", "ImageUrl" },
+                columns: new[] { "Id", "Title"},
                 values: new object[,]
                 {
-                    { 1, "MySQL","Images/mysql.png" },
-                    { 2, "HTML","Images/html.png" },
-                    { 3, "CSS","Images/css.png" },
-                    { 4, "JavaScript" , "Images/javascript.png"},
-                    { 5, "Java" , "Images/java.png"},
-                    { 6, "Kotlin" , "Images/kotlin.png"},
-                    { 7, "C#" , "Images/csharp.png"},              
-                    { 9, "JSON","Images/json.png" },                
-                    { 11, "Github","Images/github.png" },
-                    { 12, "Bootstrap","Images/bootstrap.png" },
-                    { 13, "Spring Framework","Images/spring.png" }
+                    { 1, "MySQL" },
+                    { 2, "HTML" },
+                    { 3, "CSS" },
+                    { 4, "JavaScript" },
+                    { 5, "Java" },
+                    { 6, "Kotlin" },
+                    { 7, "C#" },              
+                    { 9, "JSON"},                
+                    { 11, "Github" },
+                    { 12, "Bootstrap" },
+                    { 13, "Spring Framework" }
                 });
         }
 
