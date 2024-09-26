@@ -2,15 +2,99 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="index-background">
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Hi, my name is Filip Detterfelt, and I am a 28-year-old studying to become a Java developer.<br/> On this page, you can click in and read more about the technologies I have worked with.<br/>
-            Please click on the image to get my linkedin profile !"
-        </p>
-    <a class="profil-link" href="https://www.linkedin.com/in/filip-detterfelt-692154252/" 
-    title="Visit my LinkedIn profile :)">
-            <img class="profile-img" src="wwwroot\Images\jag22024.jpg" alt="Picture of me">
-</a>
+@model List<Devopsweb.Models.SkillsModel>
+
+<div class="index-container">
+    
+    <div class="content">
+        <!-- Flex-container för att hålla text och bild tillsammans -->
+        <div class="text-content">
+            <p class="welcome-message">Hello, My name is</p>
+            <p class="user-name">Filip Detterfelt</p>
+            <p class="student-role">I´m a Java Developer student</p>
+            <p class="description">Welcome to my portfolio webpage.<br /> Here, I will showcase the technologies I am proficient in<br /> and provide links to some of my GitHub repositories.</p>
+        </div>
+        <div class="content-image">
+            <!-- Containern för bilden -->
+            <img class="profile-img" src="Images/filipbild.png" alt="Picture of me">
+        </div>
+    </div>
 </div>
+
+
+
+
+
+<div class="flex-container">
+    <div class="technical-skills">
+        <h1 class="group-title">Technical Skills</h1>
+        <div class="card-group">
+            <div class="card-container">
+                <div class="card-deck">
+                    @foreach (var skill in Model)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@skill.Title</h5>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects">
+        <h1 class="group-title">My Projects</h1>
+        <div class="card-group">
+            <div class="card-container">
+                <div class="card-deck">
+                    <div class="card">
+                        <a href="https://github.com/filipdetterfelt/Backend-Pensionat" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Pensionat Koriander</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://github.com/filipdetterfelt/Webbshopenv2" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Webbshopen</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://github.com/filipdetterfelt/The-Exchanger" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">The-Exchanger</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://github.com/filipdetterfelt/Quizkampen" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Quizkampen</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://github.com/filipdetterfelt/spelFemtonVG" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">15-Game</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card">
+                        <a href="https://github.com/filipdetterfelt/PasswordCracker" target="_blank" style="text-decoration: none; color: inherit;">
+                            <div class="card-body">
+                                <h5 class="card-title">Password-Cracker</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+

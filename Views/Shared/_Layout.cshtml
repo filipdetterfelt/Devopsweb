@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 header-style">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Devopsweb</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -18,13 +18,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                    <ul class="navbar-nav flex-grow-1">                                             
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Skills" asp-action="TechnicalSkills">Technical Skills</a>
                         </li>
@@ -42,8 +36,27 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Devopsweb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="contact-me-content">
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/filip-detterfelt-692154252/">
+                <img class="linkedin" src="~/Images/linkedin.png" alt="LinkedIn">
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://github.com/filipdetterfelt">
+                <img class="github" src="~/Images/github2.png" alt="GitHub">
+                </a>
+            </div>
+            <div class="contact-item">
+                <img class="phone" src="~/Images/phone.png" alt="Phone">
+                <span class="contact-text">070-265 86 96</span> 
+            </div>
+            <div class="contact-item">
+                <a href="mailto:fillip.detterfelt@gmail.com">
+                <img class="mail" src="~/Images/mail.png" alt="Mail">
+                <span class="contact-text-mail">fillip.detterfelt@gmail.com</span> 
+                </a>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

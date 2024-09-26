@@ -104,9 +104,6 @@ p {
     display: inline-block;
 }
 
-.profile-img {
-    height: 400px;
-}
 
 .card-img-top {
     width: 100%;
@@ -120,7 +117,6 @@ p {
     background-color: #2A2A38;
     width: 100%;
     min-height: 500px;
-    overflow-y: scroll;
 }
 
 .flex-container{
@@ -146,3 +142,98 @@ p {
         transform: scale(1.25);    
 }
 
+h1,p{
+    margin:0;
+    padding:0;
+}
+
+.index-container {
+    margin: 0;
+    padding: 20px;
+}
+
+.content {
+    display: flex; /* Flexbox för att placera text och bild på samma rad */
+    align-items: center; /* Vertikal centrering */
+    margin-top: 20px;
+}
+
+.welcome-message {
+    font-size: 40px;
+    
+}
+
+.text-content {
+    margin-right: 20px; /* Avstånd mellan text och bild */
+}
+
+.user-name {
+    font-size: 60px;
+}
+
+.student-role {
+    font-size: 40px;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.content-image {
+    margin-left: 20px; 
+}
+
+.profile-img {
+    height: 400px; 
+    width: auto; 
+    margin-left:300px;
+    
+}
+
+.footer {
+    display: flex;
+    justify-content: center; 
+    padding: 10px;
+}
+
+.contact-me-content {
+    display: flex; 
+    justify-content: center; 
+    gap: 60px; 
+}
+
+.contact-item {
+    display: flex; /* Flexbox för att placera bild och text på samma rad */
+    align-items: center; /* Vertikal centrering av bild och text */
+    gap: 10px; /* Avstånd mellan bild och text */
+}
+
+.contact-me img {
+    width: 60px; /* Storlek på ikonerna */
+    height: auto; /* Bevara proportioner */
+}
+
+.contact-text {
+    color: #A9D3E7; /* Justera textfärgen om det behövs */
+}
+
+.contact-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-text-mail{
+    margin-left:10px;
+}
+
+.header-style {
+   background-color: #1E1E2F;
+}
+.header-style .navbar-brand,
+.header-style .nav-link {
+  color: #FFD700 !important; /* Använder !important för att överskrida eventuella andra regler */
+}
+
+.header-style .navbar-toggler-icon {
+ background-color: #FFD700; /* Om du vill ändra färgen på hamburgerikonen för mobilen */
+}
