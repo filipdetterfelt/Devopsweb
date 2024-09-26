@@ -34,14 +34,14 @@ connectionString = connectionString
     .Replace("${DB_DATABASE}", Environment.GetEnvironmentVariable("DB_DATABASE") ?? string.Empty)
     .Replace("${DB_USERNAME}", Environment.GetEnvironmentVariable("DB_USERNAME") ?? string.Empty)
     .Replace("${DB_PASSWORD}", Environment.GetEnvironmentVariable("DB_PASSWORD") ?? string.Empty);
-if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DB_HOST")))
-{
-    Console.WriteLine("DB_HOST is null or empty.");
-}
+builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
+
+string newConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine("New connection string = " + newConnectionString.Length);
 
 string hardcoded = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=password;";
-Console.WriteLine("Connection String after replacement: " + connectionString);
-Console.WriteLine("Hardcoded String " + hardcoded);
+Console.WriteLine("Connection String after replacement: " + connectionString.Length);
+Console.WriteLine("Hardcoded String " + hardcoded.Length);
 
 //string testenv = Environment.GetEnvironmentVariable("DB_HOST");
 //Console.WriteLine("Testenv = " + testenv);
@@ -50,7 +50,7 @@ Console.WriteLine("Hardcoded String " + hardcoded);
 
 // Replace placeholders with actual environment variables
 //Console.WriteLine(connectionString);
-//builder.Configuration["ConnectionStrings:DefaultConnection"] = connectionString;
+
 //Console.WriteLine(builder.Configuration["ConnectionStrings:DefaultConnection"]);
 
 //Console.WriteLine(Environment.GetEnvironmentVariable("DB_HOST").Length);
@@ -64,10 +64,10 @@ Console.WriteLine("Hardcoded String " + hardcoded);
 //Console.WriteLine(connectionString);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseNpgsql(newConnectionString));
 
 builder.Services.AddDbContext<SkillsDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseNpgsql(newConnectionString));
 
 
 // Add services to the container.
