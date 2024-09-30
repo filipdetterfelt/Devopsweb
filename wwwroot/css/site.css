@@ -333,6 +333,7 @@ h1, p {
 
 .welcome-message {
     font-size: 40px;
+    color:#00BFFF ;
 }
 
 .text-content {
@@ -346,10 +347,12 @@ h1, p {
 
 .student-role {
     font-size: 40px;
+    color: #00BFFF;
 }
 
 .description {
     font-size: 20px;
+    
 }
 
 .content-image {

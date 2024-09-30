@@ -5,18 +5,18 @@
 namespace Devopsweb.Migrations
 {
     /// <inheritdoc />
-    public partial class newestMigration : Migration
+    public partial class V2Database : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           
+
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            
+
         }
     }
 }
