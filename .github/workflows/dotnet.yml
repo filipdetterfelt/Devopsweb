@@ -1,22 +1,36 @@
 name: C# CI With dotnet
 
 on:
-    push:
-        branches: ["master"]
+  push:
+    branches: ["master"]
 
 permissions: write-all
 
 jobs:
-   build:
+  build:
         
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
     
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.0.400' 
+
+    - name: Restore dependencies
+      run: dotnet restore Devopsweb.csproj
+    
+    - name: Build project
+      run: dotnet build Devopsweb.csproj --configuration Release --no-restore
+
+    - name: Run tests
+      run: dotnet test Devopsweb.csproj --configuration Release --no-restore --no-build
+
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
-      if: success()
+      if: success()  
       with:
         image: filipdetterfelt/portfolio
         tags: latest
@@ -26,7 +40,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Deploy to production
-      if: success()
+      if: success()  
       uses: johnbeynon/render-deploy-action@v0.0.8
       with:
         service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
