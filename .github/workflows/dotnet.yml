@@ -26,7 +26,7 @@ jobs:
       run: dotnet build Devopsweb.csproj --configuration Release --no-restore
 
     - name: Run tests
-      run: dotnet test Devopsweb.csproj --configuration Release --no-restore --no-build
+      run: dotnet test Devopsweb.csproj --configuration Release --no-restore --no-build --logger "console;verbosity=detailed"
 
     - uses: mr-smithers-excellent/docker-build-push@v6
       name: Build & push Docker image
