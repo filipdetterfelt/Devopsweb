@@ -13,9 +13,7 @@ namespace Devopsweb.Data
             _configuration = configuration;
         }
 
-        public SkillsDbContext(DbContextOptions options) : base(options)
-        {
-        }
+       
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
