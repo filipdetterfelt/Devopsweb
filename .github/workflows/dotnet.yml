@@ -21,13 +21,11 @@ jobs:
       run: dotnet restore Devopsweb.csproj
 
     - name: Build project
-      run: dotnet build Devopsweb.csproj --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore
 
-    - name: Build test
-      run: dotnet build DevopswebTests.csproj
 
     - name: Run tests
-      run: dotnet test
+      run: dotnet test --no-restore --verbosity normal
       continue-on-error: false
 
     - name: Build & push Docker image
