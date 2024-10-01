@@ -25,6 +25,7 @@ namespace Devopsweb.Controllers
             return View(skills);
         }
 
+
         public IActionResult Privacy()
         {
             return View();
