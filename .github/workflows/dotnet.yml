@@ -24,7 +24,7 @@ jobs:
       run: cd ../.. && ls
 
     - name: Build project
-      run: dotnet build Devopsweb.sln --configuration Release --no-restore
+      run: dotnet build Devopsweb.csproj --configuration Release --no-restore
      
     
 
