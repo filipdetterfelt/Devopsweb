@@ -25,10 +25,11 @@ jobs:
 
     - name: Run tests
       run: dotnet test Devopsweb.csproj --configuration Release --no-restore --no-build
+      continue-on-error: false
 
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
-      if: success() 
+      if: success()  
       with:
         image: filipdetterfelt/portfolio
         tags: latest
@@ -39,7 +40,7 @@ jobs:
 
     - name: Deploy to production
       uses: johnbeynon/render-deploy-action@v0.0.8
-      if: success() 
+      if: success()  
       with:
         service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
         api-key: ${{ secrets.MY_RENDER_API_KEY }}
