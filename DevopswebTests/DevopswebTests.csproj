@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Devopsweb\Devopsweb.csproj" />
+    <ProjectReference Include=".\Devopsweb.csproj" />
   </ItemGroup>
 
   <ItemGroup>
