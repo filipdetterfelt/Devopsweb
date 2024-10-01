@@ -21,7 +21,7 @@ jobs:
       run: dotnet restore Devopsweb.csproj
 
     - name: Listing files
-      run: cd .. && ls
+      run: cd ../.. && ls
 
     - name: Build project
       run: dotnet build Devopsweb.csproj --configuration Release --no-restore
