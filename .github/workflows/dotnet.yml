@@ -21,8 +21,9 @@ jobs:
       run: dotnet restore Devopsweb.csproj
 
     - name: Build project
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build Devopsweb.csproj --configuration Release --no-restore
 
+    
 
     - name: Run tests
       run: dotnet test --no-restore --verbosity normal
