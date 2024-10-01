@@ -20,6 +20,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore Devopsweb.csproj
 
+    - name: Listing files
+      run: ls
+
     - name: Build project
       run: dotnet build Devopsweb.csproj --configuration Release --no-restore
      
