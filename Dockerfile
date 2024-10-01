@@ -5,7 +5,7 @@ EXPOSE 8080
 
 COPY ["Devopsweb.csproj", "./"]
 COPY ["./DevopswebTests", "./"]
-RUN dotnet restore "./Devopsweb.csproj"
+
 
 COPY . .
 RUN dotnet build "Devopsweb.csproj" -c Release -o /app/build
